@@ -1,6 +1,6 @@
 'use client'
-import { Pizza, SelectCategoryMenu, Title } from '@/src/components'
 import { Categories } from '@/src/components/Helpers/categories'
+import { Pizza, SelectCategoryMenu, Title } from '@/src/components/Ui'
 import { Container, Filter } from '@/src/layout'
 import { useGetPizzasStore } from '@/src/store/useGetPizzasStore'
 

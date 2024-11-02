@@ -7,7 +7,7 @@ const InputStyles = cva('w-full h-12 rounded-xl', {
     variants: {
         intent: {
             search: ['bg-blue text-gray pl-10'],
-            input: ['border rounded-sl pl-4 h-10'],
+            input: ['border border-blue rounded-sl pl-4 h-10'],
         },
     },
 

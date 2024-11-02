@@ -5,7 +5,7 @@ const TitleStyles = cva('', {
     variants: {
         intent: {
             h1: 'font-extrabold text-2xl',
-            h2: [],
+            h2: 'font-bold text-xl',
             h3: [],
             h4: 'text-sm text-lg',
             h5: [],

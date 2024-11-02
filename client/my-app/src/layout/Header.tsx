@@ -1,9 +1,9 @@
 'use client'
 import { CartIcon, PizzaIcon, UserIcon } from '@/src/assets/images'
-import { Title } from '@/src/components'
+import { Title } from '@/src/components/Ui'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Button, Input } from '../components'
+import { Button, Input } from '../components/Ui'
 import { Container } from './Container'
 
 export const Header = () => {

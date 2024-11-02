@@ -1,8 +1,8 @@
 'use client'
+import { useGetPizzasStore } from '@/src/store/useGetPizzasStore'
 import { cva, VariantProps } from 'class-variance-authority'
 import { HTMLAttributes, useEffect, useState } from 'react'
-import { useGetPizzasStore } from '../store/useGetPizzasStore'
-import { Category } from './Helpers/categories'
+import { Category } from '../Helpers/categories'
 
 const SelectCategoryMenuStyles = cva('rounded-2xl pl-4 pr-4', {
     variants: {

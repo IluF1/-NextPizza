@@ -1,4 +1,4 @@
-import { Button, Input, Title } from '@/src/components'
+import { Button, Input, Title } from '@/src/components/Ui'
 import Link from 'next/link'
 
 const Auth = () => {

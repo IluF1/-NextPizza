@@ -7,6 +7,7 @@ const ButtonStyles = cva('w-full h-12', {
         intent: {
             default: 'border-orange rounded-xl pointer text-orange border-2',
             outline: '',
+            light: 'bg-lightOrange text-orange rounded-2xl',
         },
     },
     defaultVariants: {

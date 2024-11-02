@@ -1,6 +1,8 @@
 'use client'
 import { cva, VariantProps } from 'class-variance-authority'
-import { HTMLAttributes, useState } from 'react'
+import { HTMLAttributes, useEffect, useState } from 'react'
+import { useGetPizzasStore } from '../store/useGetPizzasStore'
+import { Category } from './Helpers/categories'
 
 const SelectCategoryMenuStyles = cva('rounded-2xl pl-4 pr-4', {
     variants: {
@@ -14,11 +16,6 @@ const SelectCategoryMenuStyles = cva('rounded-2xl pl-4 pr-4', {
     },
 })
 
-interface Category {
-    id: number
-    title: string
-}
-
 interface Props extends HTMLAttributes<HTMLButtonElement>, VariantProps<typeof SelectCategoryMenuStyles> {
     categories: Category[]
     defaultCategoryId: number
@@ -28,7 +25,14 @@ export const SelectCategoryMenu = ({ categories, intent, defaultCategoryId, clas
     const [selectedCategory, setSelectedCategory] = useState<Category | null>({
         id: defaultCategoryId,
         title: categories.find((c) => c.id === defaultCategoryId)?.title || '',
+        category: 'all',
     })
+
+    const { getAllPizzas } = useGetPizzasStore()
+
+    useEffect(() => {
+        getAllPizzas(selectedCategory?.category || 'all')
+    }, [selectedCategory])
 
     const handleCategoryClick = (category: Category) => {
         setSelectedCategory(category)

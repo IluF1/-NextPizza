@@ -1,12 +1,12 @@
+import '@/src/assets/styles/globals.css'
 import { Header } from '@/src/layout'
 import type { Metadata } from 'next'
 import { Nunito } from 'next/font/google'
-import './assets/styles/globals.css'
 
-const font = Nunito({ subsets: ['latin'] })
+const font = Nunito({ subsets: ['latin'], weight: ['400', '700'] })
 
 export const metadata: Metadata = {
-    title: 'Next Pizza',
+    title: 'Next Pizza | Home',
     description: 'Next Pizza by miraclecancode',
 }
 
@@ -18,9 +18,7 @@ export default function RootLayout({
     return (
         <html lang='ru'>
             <body className={font.className}>
-                <header>
-                    <Header />
-                </header>
+                <Header />
                 <main>{children}</main>
             </body>
         </html>

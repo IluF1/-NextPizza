@@ -1,4 +1,4 @@
-import { SearchIcon } from '@/app/assets/images'
+import { SearchIcon } from '@/src/assets/images'
 import { cva, VariantProps } from 'class-variance-authority'
 import Image from 'next/image'
 import { HTMLAttributes } from 'react'

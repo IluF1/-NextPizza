@@ -4,12 +4,12 @@ import { HTMLAttributes } from 'react'
 const TitleStyles = cva('', {
     variants: {
         intent: {
-            h1: ['text-extrabold', 'text-2xl'],
+            h1: 'font-extrabold text-2xl',
             h2: [],
             h3: [],
-            h4: ['text-sm', 'text-lg'],
+            h4: 'text-sm text-lg',
             h5: [],
-            h6: [],
+            h6: 'text-gray text-sm',
         },
     },
 

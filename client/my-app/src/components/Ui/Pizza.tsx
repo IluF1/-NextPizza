@@ -1,7 +1,7 @@
 'use client'
 import { PlusIcon } from '@/src/assets/images'
 import { cva, VariantProps } from 'class-variance-authority'
-import { HTMLAttributes, useState } from 'react'
+import { HTMLAttributes } from 'react'
 import { Button } from './Button'
 import { Title } from './Title'
 
@@ -18,28 +18,25 @@ const pizzaStyles = cva('w-72', {
 
 interface Props extends HTMLAttributes<HTMLDivElement>, VariantProps<typeof pizzaStyles> {
     name: string
-    description: string
+    ingredients: string[]
     price: number
     imageUrl: string
 }
 
-export const Pizza = ({ name, description, intent = 'default', className, price, imageUrl, ...props }: Props) => {
-    const [isExpanded, setIsExpanded] = useState(false)
-    const maxWords = 15
-    const getDescriptionPreview = (text: string) => {
-        const words = text.split(' ')
-        return words.length > maxWords ? words.slice(0, maxWords).join(' ') + '...' : text
-    }
-
+export const Pizza = ({ name, ingredients, intent, className, price, imageUrl, ...props }: Props) => {
     return (
         <div className={pizzaStyles({ intent, className })} {...props}>
             <div className='bg-lightOrange w-full h-64 rounded-2xl'>
-                <img src={imageUrl} alt={name} />
+                <img src={imageUrl} alt={name} className=' rounded-full w-full h-full' />
             </div>
-            <Title className='mt-2'>{name}</Title>
-            <Title intent='h6' className='w-full mt-2 text-wrap break-all'>
-                {isExpanded ? description : getDescriptionPreview(description)}
-            </Title>
+            <Title className='mt-9'>{name}</Title>
+            <div className=' flex'>
+                {ingredients.map((ingredient) => (
+                    <Title intent='h6' key={ingredient}>
+                        {ingredient},
+                    </Title>
+                ))}
+            </div>
             <div className='flex justify-between mt-4'>
                 <Title>
                     <span className='text-base'>от</span> {price}$

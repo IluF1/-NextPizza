@@ -4,7 +4,7 @@ import { instance } from '../components/Helpers/instance'
 interface Pizza {
     id: number
     name: string
-    description: string
+    ingredients: string[]
     price: number
     imgUrl: string
     category: string
@@ -19,7 +19,9 @@ export const useGetPizzasStore = create<UseGetPizzasStore>((set) => ({
     pizzas: [],
     getAllPizzas: async (category: string) => {
         try {
-            const response = await instance.post('/pizza/getAllPizzas', { category: category || 'all' })
+            const response = await instance.post('/getAllPizzas', {
+                category: category,
+            })
             set({ pizzas: response.data })
         } catch (error) {
             console.error(error)

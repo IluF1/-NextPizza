@@ -22,7 +22,7 @@ const Home = () => {
                     </div>
                     <div className='w-1000 flex flex-wrap gap-16 mt-9'>
                         {pizzas.map((pizza) => (
-                            <Pizza key={pizza.id} name={pizza.name} imageUrl={pizza.imgUrl} description={pizza.description} price={pizza.price} />
+                            <Pizza key={pizza.id} name={pizza.name} imageUrl={pizza.imgUrl} ingredients={pizza.ingredients} price={pizza.price} />
                         ))}
                     </div>
                 </div>

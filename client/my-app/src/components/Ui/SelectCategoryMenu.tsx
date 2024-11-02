@@ -31,7 +31,7 @@ export const SelectCategoryMenu = ({ categories, intent, defaultCategoryId, clas
     const { getAllPizzas } = useGetPizzasStore()
 
     useEffect(() => {
-        getAllPizzas(selectedCategory?.category || 'all')
+        getAllPizzas(selectedCategory?.title || 'все')
     }, [selectedCategory])
 
     const handleCategoryClick = (category: Category) => {

@@ -1,11 +1,11 @@
 'use client'
 import { Categories } from '@/src/components/Helpers/categories'
-import { Pizza, SelectCategoryMenu, Title } from '@/src/components/Ui'
+import { Pizza, SelectCategoryMenu, Spinner, Title } from '@/src/components/Ui'
 import { Container, Filter } from '@/src/layout'
 import { useGetPizzasStore } from '@/src/store/useGetPizzasStore'
 
 const Home = () => {
-    const { pizzas } = useGetPizzasStore()
+    const { pizzas, loading } = useGetPizzasStore()
 
     return (
         <Container>
@@ -15,7 +15,10 @@ const Home = () => {
                     <SelectCategoryMenu categories={Categories} defaultCategoryId={Categories[0].id} />
                 </div>
             </div>
-            {pizzas.length ? (
+
+            {loading ? (
+                <Spinner />
+            ) : (
                 <div className='flex gap-12 mt-6'>
                     <div className='flex-shrink-0 w-64'>
                         <Filter />
@@ -26,8 +29,6 @@ const Home = () => {
                         ))}
                     </div>
                 </div>
-            ) : (
-                <div className='mt-6 text-center'>Пицц нет</div>
             )}
         </Container>
     )

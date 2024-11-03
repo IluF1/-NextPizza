@@ -25,13 +25,13 @@ export const SelectCategoryMenu = ({ categories, intent, defaultCategoryId, clas
     const [selectedCategory, setSelectedCategory] = useState<Category | null>({
         id: defaultCategoryId,
         title: categories.find((c) => c.id === defaultCategoryId)?.title || '',
-        category: 'all',
+        category: 'ALL',
     })
 
     const { getAllPizzas } = useGetPizzasStore()
 
     useEffect(() => {
-        getAllPizzas(selectedCategory?.title || 'все')
+        getAllPizzas(selectedCategory?.category || 'ALL')
     }, [selectedCategory])
 
     const handleCategoryClick = (category: Category) => {

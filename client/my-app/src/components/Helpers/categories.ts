@@ -8,31 +8,31 @@ export const Categories: Category[] = [
     {
         id: 1,
         title: 'Все',
-        category: 'all',
+        category: 'ALL',
     },
     {
         id: 2,
         title: 'Мясные',
-        category: 'meat',
+        category: 'MEAT',
     },
     {
         id: 3,
         title: 'Вегетарианские',
-        category: 'vegan',
+        category: 'VEGAN',
     },
     {
         id: 4,
         title: 'Острые',
-        category: 'spicy',
+        category: 'SPICY',
     },
     {
         id: 5,
         title: 'Сладкие',
-        category: 'sweet',
+        category: 'SWEET',
     },
     {
         id: 6,
         title: 'С курицей',
-        category: 'with-meat',
+        category: 'WITH_MEAT',
     },
 ]

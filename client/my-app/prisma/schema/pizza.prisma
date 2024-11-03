@@ -1,8 +1,23 @@
+enum Category {
+  VEGAN
+  MEAT
+  WITH_MEAT
+  SPICY
+  SWEET
+}
+
 model Pizza {
-  id          Int      @id @default(autoincrement())
+  id          Int           @id @default(autoincrement())
   name        String
-  ingredients String[]
   price       Int
-  category    String[]
+  category    Category
   imgUrl      String
+  ingredients Ingredients[]
+}
+
+model Ingredients {
+  id     Int     @id @default(autoincrement())
+  name   String  @unique
+  pizzas Pizza[]
+  price  Int
 }

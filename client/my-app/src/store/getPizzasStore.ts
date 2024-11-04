@@ -1,23 +1,14 @@
 import { create } from 'zustand'
 import { instance } from '../components/Helpers/instance'
-import { Ingredient } from '../components/Helpers/interfaces'
+import { Pizza } from '../components/Helpers/interfaces'
 
-interface Pizza {
-    id: number
-    name: string
-    ingredients: Ingredient[]
-    price: number
-    imgUrl: string
-    category: string
-}
-
-interface UseGetPizzasStore {
+interface GetPizzasStore {
     pizzas: Pizza[]
     loading: boolean
     getAllPizzas: (category: string) => Promise<void>
 }
 
-export const useGetPizzasStore = create<UseGetPizzasStore>((set) => ({
+export const getPizzasStore = create<GetPizzasStore>((set) => ({
     pizzas: [],
     loading: true,
     getAllPizzas: async (category: string) => {

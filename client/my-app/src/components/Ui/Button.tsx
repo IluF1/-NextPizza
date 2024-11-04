@@ -15,16 +15,31 @@ const ButtonStyles = cva('w-full h-12', {
     },
 })
 
-interface Props extends HTMLAttributes<HTMLButtonElement>, VariantProps<typeof ButtonStyles> {
+interface Props
+    extends HTMLAttributes<HTMLButtonElement>,
+        VariantProps<typeof ButtonStyles> {
     firstIcon?: string
 }
 
-export const Button = ({ children, onClick, intent, firstIcon, className, ...props }: Props) => {
+export const Button = ({
+    children,
+    onClick,
+    intent,
+    firstIcon,
+    className,
+    ...props
+}: Props) => {
     const buttonClass = `${ButtonStyles({ intent })} ${className ?? ''}`
 
     return (
         <button className={buttonClass} {...props}>
-            {firstIcon && <Image src={firstIcon} alt='icon' className='absolute mt-1 ml-2' />}
+            {firstIcon && (
+                <Image
+                    src={firstIcon}
+                    alt='icon'
+                    className='absolute mt-1 ml-2'
+                />
+            )}
             <span className={firstIcon ? '-mr-6' : ''}>{children}</span>
         </button>
     )

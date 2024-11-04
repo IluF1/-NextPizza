@@ -1,0 +1,3 @@
+-- AlterTable
+ALTER TABLE "Pizza" ALTER COLUMN "collected" SET DEFAULT true,
+ALTER COLUMN "testType" SET DEFAULT 'TRADITIONAL';

@@ -18,7 +18,9 @@ const TitleStyles = cva('', {
     },
 })
 
-interface Props extends HTMLAttributes<HTMLElement>, VariantProps<typeof TitleStyles> {}
+interface Props
+    extends HTMLAttributes<HTMLElement>,
+        VariantProps<typeof TitleStyles> {}
 
 export const Title = ({ intent, className, children, ...props }: Props) => {
     const Tag = intent || 'h1'

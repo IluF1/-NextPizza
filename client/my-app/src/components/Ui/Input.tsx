@@ -7,7 +7,7 @@ const InputStyles = cva('w-full h-12 rounded-xl', {
     variants: {
         intent: {
             search: ['bg-blue text-gray pl-10'],
-            input: ['border border-blue rounded-sl pl-4 h-10'],
+            input: ['border border-gray rounded-sl pl-4 h-10'],
         },
     },
 
@@ -16,13 +16,23 @@ const InputStyles = cva('w-full h-12 rounded-xl', {
     },
 })
 
-interface Props extends HTMLAttributes<HTMLInputElement>, VariantProps<typeof InputStyles> {
+interface Props
+    extends HTMLAttributes<HTMLInputElement>,
+        VariantProps<typeof InputStyles> {
     placeholder?: string
     value?: string
     type?: string
 }
 
-export const Input = ({ intent, onChange, type = 'text', placeholder, className, value, ...props }: Props) => {
+export const Input = ({
+    intent,
+    onChange,
+    type = 'text',
+    placeholder,
+    className,
+    value,
+    ...props
+}: Props) => {
     return (
         <div>
             {intent === 'search' && (
@@ -30,7 +40,14 @@ export const Input = ({ intent, onChange, type = 'text', placeholder, className,
                     <Image src={SearchIcon} alt='search' />
                 </button>
             )}
-            <input placeholder={placeholder} value={value} type={type} onChange={onChange} className={InputStyles({ intent, className })} {...props} />
+            <input
+                placeholder={placeholder}
+                value={value}
+                type={type}
+                onChange={onChange}
+                className={InputStyles({ intent, className })}
+                {...props}
+            />
         </div>
     )
 }

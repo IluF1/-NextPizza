@@ -16,7 +16,7 @@ export const POST = async (req: Request) => {
             return NextResponse.json({ error: 'Поля не должны быть пустыми' }, { status: 400 })
         }
 
-        const { name, price, category, imgUrl, ingredients } = body
+        const { name, price, category, imgUrl, ingredients, testType, collected, size } = body
         const existingIngredients = await prisma.ingredients.findMany({
             where: {
                 name: {
@@ -30,10 +30,10 @@ export const POST = async (req: Request) => {
 
         const createPizza = await prisma.pizza.create({
             data: {
-                name,
-                price,
-                category,
-                imgUrl,
+                name: name,
+                price: price,
+                category: category,
+                imgUrl: imgUrl,
                 ingredients: {
                     connect: existingIngredients.map((ingredient: { id: any }) => ({ id: ingredient.id })),
                     create: newIngredients.map((ingredient: { name: string; price: number }) => ({
@@ -41,6 +41,9 @@ export const POST = async (req: Request) => {
                         price: ingredient.price,
                     })),
                 },
+                testType: testType,
+                collected: collected,
+                size: size,
             },
         })
 

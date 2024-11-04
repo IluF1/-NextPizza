@@ -6,6 +6,17 @@ enum Category {
   SWEET
 }
 
+enum TestType {
+  TRADITIONAL
+  THIN
+}
+
+enum Size {
+  SMALL
+  BIG
+  AVERAGE
+}
+
 model Pizza {
   id          Int           @id @default(autoincrement())
   name        String
@@ -13,6 +24,9 @@ model Pizza {
   category    Category
   imgUrl      String
   ingredients Ingredients[]
+  testType    TestType
+  collected   Boolean       @default(true)
+  size        Size          @default(AVERAGE)
 }
 
 model Ingredients {

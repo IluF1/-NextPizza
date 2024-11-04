@@ -7,7 +7,7 @@ export const Filter = () => {
         <div className='w-full h-full'>
             <Title>Фильтрация</Title>
             <div className='border-blue mt-8 border-b-2'>
-                <CheckBox label='Можно собирать' />
+                <CheckBox label='Можно собирать' checked />
                 <CheckBox label='Новинки' className='mt-2 mb-8' />
             </div>
             <div className='mt-4'>
@@ -21,7 +21,11 @@ export const Filter = () => {
                 <Title intent='h2'>Ингредиенты:</Title>
                 <div className='mt-2'>
                     {Ingredients.map((ingredient) => (
-                        <CheckBox label={ingredient.name} key={ingredient.id} className='mb-3' />
+                        <CheckBox
+                            label={ingredient.name}
+                            key={ingredient.id}
+                            className='mb-3'
+                        />
                     ))}
                 </div>
             </div>

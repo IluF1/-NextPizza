@@ -1,5 +1,5 @@
 'use client'
-import { useGetPizzasStore } from '@/src/store/useGetPizzasStore'
+import { getPizzasStore } from '@/src/store/getPizzasStore'
 import { cva, VariantProps } from 'class-variance-authority'
 import { HTMLAttributes, useEffect, useState } from 'react'
 import { Category } from '../Helpers/categories'
@@ -28,7 +28,7 @@ export const SelectCategoryMenu = ({ categories, intent, defaultCategoryId, clas
         category: 'ALL',
     })
 
-    const { getAllPizzas } = useGetPizzasStore()
+    const { getAllPizzas } = getPizzasStore()
 
     useEffect(() => {
         getAllPizzas(selectedCategory?.category || 'ALL')

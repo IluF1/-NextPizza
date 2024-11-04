@@ -17,21 +17,35 @@ const pizzaStyles = cva('w-72', {
     },
 })
 
-interface Props extends HTMLAttributes<HTMLDivElement>, VariantProps<typeof pizzaStyles> {
+interface Props
+    extends HTMLAttributes<HTMLDivElement>,
+        VariantProps<typeof pizzaStyles> {
     name: string
     ingredients: Ingredient[]
     price: number
     imageUrl: string
 }
 
-export const Pizza = ({ name, ingredients, intent, className, price, imageUrl, ...props }: Props) => {
+export const Pizza = ({
+    name,
+    ingredients,
+    intent,
+    className,
+    price,
+    imageUrl,
+    ...props
+}: Props) => {
     return (
         <div className={pizzaStyles({ intent, className })} {...props}>
             <div className='bg-lightOrange w-full h-64 rounded-2xl'>
-                <img src={imageUrl} alt={name} className=' rounded-full w-full h-full' />
+                <img
+                    src={imageUrl}
+                    alt={name}
+                    className=' rounded-full w-full h-full'
+                />
             </div>
             <Title className='mt-9'>{name}</Title>
-            <div className=' flex'>
+            <div className=' flex flex-wrap'>
                 {ingredients.map((ingredient) => (
                     <Title intent='h6' key={ingredient.id}>
                         {ingredient.name},
